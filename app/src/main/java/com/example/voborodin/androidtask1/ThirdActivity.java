@@ -53,14 +53,6 @@ public class ThirdActivity extends AppCompatActivity
 
 			}
 		});
-		/*new AdapterView.OnItemSelectedListener()
-		{
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-			{
-
-			}
-		});*/
 	}
 
 }
