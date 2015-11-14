@@ -9,4 +9,17 @@
 		android:layout_height="wrap_content"
 		android:text="Second Activity"
 		android:textSize="27sp"/>
+
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:src="@drawable/bike"
+		android:adjustViewBounds="true"
+		android:id="@+id/content_second_image"/>
+
+	<RadioGroup
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/activity_second_radio_group"
+		android:layout_below="@id/content_second_image"/>
 </RelativeLayout>
