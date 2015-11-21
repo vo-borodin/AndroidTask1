@@ -13,58 +13,58 @@ import android.widget.TextView;
  */
 public class ScaleTypeAdapter extends BaseAdapter
 {
-	static class ViewHolder
-	{
-		public TextView text;
-	}
+    static class ViewHolder
+    {
+        public TextView text;
+    }
 
-	private AppCompatActivity mActivity;
+    private AppCompatActivity mActivity;
 
-	public ScaleTypeAdapter(AppCompatActivity activity)
-	{
-		mActivity = activity;
-	}
+    public ScaleTypeAdapter(AppCompatActivity activity)
+    {
+        mActivity = activity;
+    }
 
-	@Override
-	public int getCount()
-	{
-		return ImageView.ScaleType.values().length;
-	}
+    @Override
+    public int getCount()
+    {
+        return ImageView.ScaleType.values().length;
+    }
 
-	@Override
-	public ImageView.ScaleType getItem(int position)
-	{
-		ImageView.ScaleType[] types = ImageView.ScaleType.values();
-		return types[position];
-	}
+    @Override
+    public ImageView.ScaleType getItem(int position)
+    {
+        ImageView.ScaleType[] types = ImageView.ScaleType.values();
+        return types[position];
+    }
 
-	@Override
-	public long getItemId(int position)
-	{
-		return position;
-	}
+    @Override
+    public long getItemId(int position)
+    {
+        return position;
+    }
 
-	@Override
-	public View getView(int position, View rowView, ViewGroup parent)
-	{
-		ViewHolder viewHolder;
-		if (rowView == null)
-		{
-			LayoutInflater layoutInflater = mActivity.getLayoutInflater();
-			rowView = layoutInflater.inflate(R.layout.item_scale, null, false);
+    @Override
+    public View getView(int position, View rowView, ViewGroup parent)
+    {
+        ViewHolder viewHolder;
+        if (rowView == null)
+        {
+            LayoutInflater layoutInflater = mActivity.getLayoutInflater();
+            rowView = layoutInflater.inflate(R.layout.item_scale, null, false);
 
-			viewHolder = new ViewHolder();
-			viewHolder.text = (TextView) rowView.findViewById(R.id.item_scale_text_view_caption);
+            viewHolder = new ViewHolder();
+            viewHolder.text = (TextView) rowView.findViewById(R.id.item_scale_text_view_caption);
 
-			rowView.setTag(viewHolder);
-		}
-		else
-		{
-			viewHolder = (ViewHolder) rowView.getTag();
-		}
+            rowView.setTag(viewHolder);
+        }
+        else
+        {
+            viewHolder = (ViewHolder) rowView.getTag();
+        }
 
-		viewHolder.text.setText(getItem(position).name());
+        viewHolder.text.setText(getItem(position).name());
 
-		return rowView;
-	}
+        return rowView;
+    }
 }

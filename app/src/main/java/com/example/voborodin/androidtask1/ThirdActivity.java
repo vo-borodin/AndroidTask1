@@ -14,47 +14,47 @@ import android.widget.Spinner;
 
 public class ThirdActivity extends AppCompatActivity
 {
-	private ScaleTypeAdapter mAdapter;
+    private ScaleTypeAdapter mAdapter;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_third);
-		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_third);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-		fab.setOnClickListener(new View.OnClickListener()
-		{
-			@Override
-			public void onClick(View view)
-			{
-				Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-						.setAction("Action", null).show();
-			}
-		});
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
 
-		Spinner spinner = (Spinner) findViewById(R.id.content_third_spinner);
-		mAdapter = new ScaleTypeAdapter(this);
-		spinner.setAdapter(mAdapter);
-		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-		{
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-			{
-			    ImageView.ScaleType type = mAdapter.getItem(position);
-				ImageView img = (ImageView) findViewById(R.id.content_third_image);
-				img.setScaleType(type);
-			}
+        Spinner spinner = (Spinner) findViewById(R.id.content_third_spinner);
+        mAdapter = new ScaleTypeAdapter(this);
+        spinner.setAdapter(mAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                ImageView.ScaleType type = mAdapter.getItem(position);
+                ImageView img = (ImageView) findViewById(R.id.content_third_image);
+                img.setScaleType(type);
+            }
 
-			@Override
-			public void onNothingSelected(AdapterView<?> parent)
-			{
+            @Override
+            public void onNothingSelected(AdapterView<?> parent)
+            {
 
-			}
-		});
-	}
+            }
+        });
+    }
 
 }
