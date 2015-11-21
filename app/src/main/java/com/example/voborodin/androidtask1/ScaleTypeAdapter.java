@@ -1,6 +1,7 @@
 package com.example.voborodin.androidtask1;
 
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -12,12 +13,15 @@ import android.widget.TextView;
  */
 public class ScaleTypeAdapter extends BaseAdapter
 {
+	static class ViewHolder
+	{
+		public TextView text;
+	}
 
 	private AppCompatActivity mActivity;
 
 	public ScaleTypeAdapter(AppCompatActivity activity)
 	{
-
 		mActivity = activity;
 	}
 
@@ -41,13 +45,26 @@ public class ScaleTypeAdapter extends BaseAdapter
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent)
+	public View getView(int position, View rowView, ViewGroup parent)
 	{
-		View root = mActivity.getLayoutInflater().inflate(R.layout.item_scale, null, false);
+		ViewHolder viewHolder;
+		if (rowView == null)
+		{
+			LayoutInflater layoutInflater = mActivity.getLayoutInflater();
+			rowView = layoutInflater.inflate(R.layout.item_scale, null, false);
 
-		TextView caption = (TextView)root.findViewById(R.id.item_scale_text_view_caption);
-		caption.setText(getItem(position).name());
-		root.setTag(getItem(position));
-		return root;
+			viewHolder = new ViewHolder();
+			viewHolder.text = (TextView) rowView.findViewById(R.id.item_scale_text_view_caption);
+
+			rowView.setTag(viewHolder);
+		}
+		else
+		{
+			viewHolder = (ViewHolder) rowView.getTag();
+		}
+
+		viewHolder.text.setText(getItem(position).name());
+
+		return rowView;
 	}
 }

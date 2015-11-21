@@ -14,6 +14,7 @@ import android.widget.Spinner;
 
 public class ThirdActivity extends AppCompatActivity
 {
+	private ScaleTypeAdapter mAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -34,16 +35,17 @@ public class ThirdActivity extends AppCompatActivity
 			}
 		});
 
+
 		Spinner spinner = (Spinner) findViewById(R.id.content_third_spinner);
-		ScaleTypeAdapter adapter = new ScaleTypeAdapter(this);
-		spinner.setAdapter(adapter);
+		mAdapter = new ScaleTypeAdapter(this);
+		spinner.setAdapter(mAdapter);
 		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
 		{
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
 			{
-			    ImageView.ScaleType type = (ImageView.ScaleType) view.getTag();
-				ImageView img = (ImageView) findViewById(R.id.content_second_image);
+			    ImageView.ScaleType type = mAdapter.getItem(position);
+				ImageView img = (ImageView) findViewById(R.id.content_third_image);
 				img.setScaleType(type);
 			}
 
