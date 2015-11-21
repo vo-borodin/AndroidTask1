@@ -40,7 +40,6 @@ public class SecondActivity extends AppCompatActivity
 			radioGroup.addView(btn);
 		}
 		RadioButton childAt = (RadioButton) radioGroup.getChildAt(0);
-		childAt.setChecked(true);
 
 		radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
 		{
@@ -52,5 +51,8 @@ public class SecondActivity extends AppCompatActivity
 				img.setScaleType(type);
 			}
 		});
+
+		radioGroup.check(childAt.getId());
+
 	}
 }
